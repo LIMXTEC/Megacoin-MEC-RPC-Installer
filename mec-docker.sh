@@ -113,7 +113,7 @@ else
     printf "${GREEN}GREAT! Your ${MEC_COL}Megacoin${GREEN} RPC Server Docker Container is running now! :)${NO_COL}\n"
     printf "\nShow your running docker container \'${CONTAINER_NAME}\' with 'docker ps'\n"
     sudo docker ps | grep ${CONTAINER_NAME}
-    printf "\nJump inside the ${MEC_COL}Megacoin (MEC)${NO_COL} RPC-Server Docker Container with 'docker exec -it ${CONTAINER_NAME} bash'\n"
+    printf "\nJump inside the ${MEC_COL}Megacoin (MEC)${NO_COL} RPC-Server Docker Container with ${GREEN}'docker exec -it ${CONTAINER_NAME} bash'${NO_COL}\n"
     printf "\nCheck Log Output of ${MEC_COL}Megacoin (MEC)${NO_COL} RPC-Server with ${GREEN}'docker logs ${CONTAINER_NAME}'${NO_COL}\n"
     printf "${GREEN}HAVE FUN!${NO_COL}\n\n"
 fi

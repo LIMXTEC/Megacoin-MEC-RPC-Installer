@@ -64,23 +64,32 @@ RUN echo '*** Running updates and installing required packages ***' && \
                         libdb4.8++-dev
 
 # Cloning and Compiling MegaCoin Wallet
+#RUN echo '*** Cloning and Compiling MegaCoin Wallet ***' && \
+#    cd && \
+#    echo "Execute a git clone of LIMXTEC/Megacoin. Please wait..." && \
+#    git clone https://github.com/LIMXTEC/Megacoin.git && \
+#    cd Megacoin && \
+#    ./autogen.sh && \
+#    ./configure --disable-dependency-tracking --enable-tests=no --without-gui --disable-hardening && \
+#    make && \
+#    cd && \
+#    cd Megacoin/src && \
+#    strip megacoind && \
+#    cp megacoind /usr/local/bin && \
+#    strip megacoin-cli && \
+#    cp megacoin-cli /usr/local/bin && \
+#    chmod 775 /usr/local/bin/megacoin* && \
+#    cd && \
+#    rm -rf Megacoin
+
+# Download megacoin release
 RUN echo '*** Cloning and Compiling MegaCoin Wallet ***' && \
     cd && \
-    echo "Execute a git clone of LIMXTEC/Megacoin. Please wait..." && \
-    git clone https://github.com/LIMXTEC/Megacoin.git && \
-    cd Megacoin && \
-    ./autogen.sh && \
-    ./configure --disable-dependency-tracking --enable-tests=no --without-gui --disable-hardening && \
-    make && \
-    cd && \
-    cd Megacoin/src && \
-    strip megacoind && \
-    cp megacoind /usr/local/bin && \
-    strip megacoin-cli && \
-    cp megacoin-cli /usr/local/bin && \
-    chmod 775 /usr/local/bin/megacoin* && \
-    cd && \
-    rm -rf Megacoin
+    wget https://github.com/LIMXTEC/Megacoin/releases/download/0.15.0.5/linux.Ubuntu.16.04.LTS-static-libstdc.tar.gz && \
+    tar xzf *.tar.gz && \
+    chmod 775 megacoin* && \
+    cp megacoin* /usr/local/bin && \
+    rm *.tar.gz
 
 # Configure megacoin.conf	
 COPY megacoin.conf /tmp	
