@@ -62,7 +62,7 @@ source ./check_os.sh
 rm ./check_os.sh
 wget https://raw.githubusercontent.com/${GIT_REPO}/${GIT_PROJECT}/master/firewall_config.sh -O firewall_config.sh
 chmod +x ./firewall_config.sh
-source ./firewall_config.sh ${DEFAULT_PORT} ${RPC_PORT} ${TOR_PORT}
+source ./firewall_config.sh ${DEFAULT_PORT} ${TOR_PORT}
 rm ./firewall_config.sh
 
 #
